@@ -1,0 +1,26 @@
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+int n,i,s,k,j,m,l; 
+cin » n ; 
+j=0; 
+k=0; 
+m=0; 
+l=0; 
+for (j=n;j<n;j++){ 
+k=k+1; 
+for (i = k; i > 0; i--) { 
+if (k%i==0) { 
+s=s+1; 
+} 
+if (m<s) { 
+m=s; 
+l=k; 
+} 
+} 
+} 
+cout«k; 
+return 0; 
+}
