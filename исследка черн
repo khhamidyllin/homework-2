@@ -1,0 +1,101 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+double time, h, x, x_max, lenght, q_w, i, y, T2_n, m, k, n, sx, sy, dx, dy, s, x1, x2, y1, y2, x3, x4, y3, y4, x_max2,s1,s2,s3;
+int s4;
+cin >> time >> h >> lenght;
+q_w = sqrt(10 / lenght);
+x_max = sqrt(lenght*lenght - (lenght - h)*(lenght - h));
+i = 0;
+T2_n = 3.141592*(sqrt(lenght / 10));
+cout << T2_n << " ";
+m = time / T2_n;
+n = 0;
+y1 = h;
+x1 = x_max;
+x_max2=x_max;
+x3 = x_max2;
+y3 = h;
+s1=0;
+s2=0;
+for (int i1 = 0; i1 < m; i1++) {
+cout << " " << i1 << " ";
+k = (time - n * T2_n);
+cout << k << endl;
+if ((time - n * T2_n) < T2_n) {
+    s2 = s2 + 1;
+cout << "fuck" << endl;
+while (i < (time - n * T2_n) + 0.01) {
+x = x_max * cos(q_w * i);
+i += 0.01;
+y = lenght - (sqrt(lenght*lenght - x*x));
+x2 = abs(x1-x);
+y2 = abs(y1-y);
+sx = sx + x2;
+sy = sy + y2;
+s += 1;
+s1 +=1;
+x1 = x;
+y1 = y;
+
+cout << "x = " << x << ";" <<" y = "<< y << endl;
+};
+}
+else
+{
+while (i < T2_n + 0.01) {
+x = x_max * cos(q_w * i);
+i += 0.01;
+y = lenght - (sqrt(lenght*lenght - x*x));
+x2 = abs(x1-x);
+y2 = abs(y1-y);
+sx = sx + x2;
+sy = sy + y2;
+s += 1;
+x1 = x;
+y1 = y;
+cout << "x = " << x << ";" <<" y = "<< y << endl;
+};
+x_max = x_max * (-1);
+i = 0;
+n += 1;
+};
+};
+cout << endl << sx << " ;" << sy <<" ;"<<s<<endl;
+dx = sx / s;
+dy = sy / s;
+s3 = s / s2;
+cout<< endl<<"второй способ"<< endl;
+if ( s - s1 > (-1)*s1){
+ if (s4 % 2 = 1){
+  for(int i = s3; i>0; i--){
+   x3 = x3 - dx;
+   cout << "x3= "<< x3;
+   if (x3>0){
+    y3 = y3-dy;
+    cout<<" y3= "<< y3<<endl;}
+     else{
+      y3 = y3 + dy;
+      cout<<" y3= "<< y3<<endl;}
+  }
+  }
+   else {
+   for(int i = s3; i>0; i++){
+    x3 = x3 + dx;
+    cout << "x3= "<< x3;
+     if(x3<0){
+      y3 = y3-dy;
+      cout<<" y3= "<< y3<<endl;}
+       else{
+        y3= y3 +dy;
+        cout<<" y3= "<< y3<<endl;}
+   }
+ }
+}
+cout << endl << "x = " << x << "; " << endl << "y = " << y <<";"<< endl;
+cout << endl << dx<< " ;" << dy << endl;
+return 0;
+}
